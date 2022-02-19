@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="col-9">
+        <h1>New signup</h1>
+    </div>
+    <div class="col-3">
+        <a class="btn btn-primary" [routerLink]="['/']">Back</a>
+    </div>
+</div>
+<div class="form">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+        <div class="form-body">
+            <div class="form-group">
+                <label class="col-md-3 control-label">Firstname</label>
+                <div class="col-md-4">
+                    <input class="form-control" formControlName="firstname">
+                    <span class="help-block text-danger" *ngIf="signupForm.controls.firstname.invalid && (signupForm.controls.firstname.touched || isFormValid == false)">Please enter a valid firstname</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Lastname</label>
+                <div class="col-md-4">
+                    <input class="form-control" formControlName="lastname">
+                    <span class="help-block text-danger" *ngIf="signupForm.controls.lastname.invalid && (signupForm.controls.lastname.touched || isFormValid == false)">Please enter a valid lastname</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Email</label>
+                <div class="col-md-4">
+                    <input class="form-control" formControlName="email">
+                    <span class="help-block text-danger" *ngIf="signupForm.controls.email.invalid && (signupForm.controls.email.touched || isFormValid == false)">Please enter a valid email</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Start date</label>
+                <div class="col-md-4">
+                    <input class="form-control" formControlName="startdate">
+                    <span class="help-block text-danger" *ngIf="signupForm.controls.startdate.invalid && (signupForm.controls.startdate.touched || isFormValid == false)">Please enter a valid start date</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Experience</label>
+                <div class="col-md-4">
+                    <input class="form-control" formControlName="experience">
+                    <span class="help-block text-danger" *ngIf="signupForm.controls.experience.invalid && (signupForm.controls.experience.touched || isFormValid == false)">Please enter a valid experience</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Activity</label>
+                <div class="col-md-4">
+                    <span class="help-block text-danger" *ngIf="signupForm.controls.activity.invalid && (signupForm.controls.activity.touched || isFormValid == false)">Please enter a valid activity</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-primary mr-1">Submit</button>
+                    <button type="button" class="btn btn-secondary" (click)="onClearClick()">Clear</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

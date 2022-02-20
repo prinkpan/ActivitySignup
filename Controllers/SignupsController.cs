@@ -1,8 +1,8 @@
-﻿using ActivitySignup.Models;
+﻿using ActivitySignup.Data;
+using ActivitySignup.Models;
 using ActivitySignup.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,18 +11,29 @@ namespace ActivitySignup.Controllers
     [Route("api/Signups")]
     public class SignupsController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public SignupsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
         public IActionResult GetSignups()
         {
-            return null;
+            return Json(_context.Signups);
         }
 
         [HttpPost]
-        public IActionResult PostSignup([FromBody] SignupVm signup)
+        public async Task<IActionResult> PostSignup([FromBody] SignupVm signup)
         {
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var m = new Signup
             {
-                Id = signup.Id,
                 Firstname = signup.Firstname,
                 Lastname = signup.Lastname,
                 Email = signup.Email,
@@ -31,7 +42,9 @@ namespace ActivitySignup.Controllers
                 StartDate = DateTime.Parse(signup.StartDate),
                 Comments = signup.Comments
             };
-            return null;
+            _context.Add(m);
+            await _context.SaveChangesAsync();
+            return Json(_context.Signups);
         }
     }
 }

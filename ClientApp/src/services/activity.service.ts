@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 
 import { Signup } from '../model/signup.model';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ActivityService {
@@ -15,12 +14,11 @@ export class ActivityService {
     ) { }
 
     getSignups(): Observable<Signup[]> {
-        return this.httpClient.get('api/Signups')
-            .pipe(map((response: any) => response.json()));
+        return this.httpClient.get<Signup[]>('api/Signups');
     }
 
-    postSignup(signup: Signup): Observable<Signup[]> {
+    postSignup(signup: Signup): Promise<any> {
         return this.httpClient.post('api/Signups', signup)
-            .pipe(map((response: any) => response.json()));
+            .toPromise();
     }
 }

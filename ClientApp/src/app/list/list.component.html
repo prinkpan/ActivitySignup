@@ -6,3 +6,27 @@
         <a class="btn btn-primary" [routerLink]="['/signup']">New signup</a>
     </div>
 </div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Start date</th>
+            <th>Experience</th>
+            <th>Activity</th>
+            <th>Comments</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let signup of signups">
+            <td>{{signup.firstname}}</td>
+            <td>{{signup.lastname}}</td>
+            <td>{{signup.email}}</td>
+            <td>{{signup.startDate | date}}</td>
+            <td>{{signup.experience}}</td>
+            <td>{{activityList[signup.activity]}}</td>
+            <td>{{signup.comments}}</td>
+        </tr>
+    </tbody>
+</table>

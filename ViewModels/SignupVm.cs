@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ActivitySignup.ViewModels
 {
@@ -11,9 +8,11 @@ namespace ActivitySignup.ViewModels
         public int Id { get; set; }
         [Required]
         [RegularExpression(@"^[A-Za-z\s]+$")]
+        [StringLength(50)]
         public string Firstname { get; set; }
         [Required]
         [RegularExpression(@"^[A-Za-z\s]+$")]
+        [StringLength(50)]
         public string Lastname { get; set; }
         [Required]
         [EmailAddress]
@@ -26,6 +25,7 @@ namespace ActivitySignup.ViewModels
         [Required]
         public string Activity { get; set; }
         [Required]
+        [StringLength(500)]
         public string Comments { get; set; }
     }
 }

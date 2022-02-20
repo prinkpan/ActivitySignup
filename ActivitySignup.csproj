@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\list\list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\model\activity.ts" />
     <TypeScriptCompile Include="ClientApp\src\model\signup.model.ts" />

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32002.261
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivitySignup", "ActivitySignup.csproj", "{646FE8EC-D319-4DB9-86D5-F4677556EEE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ActivitySignup", "ActivitySignup.csproj", "{646FE8EC-D319-4DB9-86D5-F4677556EEE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ActivitySignupTest", "..\ActivitySignupTest\ActivitySignupTest.csproj", "{FEC57918-0522-4D36-B0B4-8F11D21CD158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{646FE8EC-D319-4DB9-86D5-F4677556EEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{646FE8EC-D319-4DB9-86D5-F4677556EEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{646FE8EC-D319-4DB9-86D5-F4677556EEE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEC57918-0522-4D36-B0B4-8F11D21CD158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEC57918-0522-4D36-B0B4-8F11D21CD158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEC57918-0522-4D36-B0B4-8F11D21CD158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEC57918-0522-4D36-B0B4-8F11D21CD158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

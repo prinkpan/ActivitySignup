@@ -3,7 +3,6 @@ using ActivitySignup.Models;
 using ActivitySignup.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ActivitySignup.Controllers

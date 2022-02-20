@@ -7,7 +7,7 @@ export class Signup {
     email: string;
     startdate: Date;
     experience: number;
-    activity: Activity;
+    activity?: Activity;
     comments: string;
     constructor(s: Signup = {} as Signup) {
         let {

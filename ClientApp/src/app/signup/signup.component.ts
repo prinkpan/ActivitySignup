@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Signup } from '../../model/signup.model';
 import { Activity } from '../../model/activity';
+import { ActivityService } from '../../services/activity.service';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +11,19 @@ import { Activity } from '../../model/activity';
 
 export class SignupComponent implements OnInit {
     private signups: Signup[];
-    public activities = Object.values(Activity);
+    public activitiesEnum = [];
+    activityList = Activity;
     isFormValid: boolean = true;
     signupForm: FormGroup;
     signupRecord: Signup;
 
-    constructor(private signupFB: FormBuilder)
-    { }
+    constructor(
+        private signupFB: FormBuilder,
+        private activityService: ActivityService
+    )
+    {
+        this.activitiesEnum = Object.keys(Activity).filter(f => !isNaN(Number(f)));
+    }
 
     ngOnInit(): void {
         this.signupRecord = new Signup();
@@ -40,21 +47,17 @@ export class SignupComponent implements OnInit {
         this.isFormValid = this.signupForm.valid;
         if (this.isFormValid) {
             let submittedSignup = new Signup(this.signupForm.value);
-            console.log(submittedSignup);
-            //this.activityService.postCustomer(submittedSignup)
-            //    .then(() => this.fetchSignups())
-            //    .catch(this.handleError);
+            this.activityService.postSignup(submittedSignup)
+                .subscribe(response => {
+                    this.signups = response
+                });
         }
     }
 
     fetchSignups(): void {
-        //this.activityService.getCustomers().then(response => {
-        //    this.signups = response;
-        //}).catch(this.handleError);
-    }
-
-    private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error);
-        return Promise.reject(error.message || error);
+        this.activityService.getSignups()
+            .subscribe(response => {
+                this.signups = response;
+            });
     }
 }

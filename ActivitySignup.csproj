@@ -27,6 +27,7 @@
     <None Remove="ClientApp\src\app\list\list.component.ts" />
     <None Remove="ClientApp\src\model\activity.ts" />
     <None Remove="ClientApp\src\model\signup.model.ts" />
+    <None Remove="ClientApp\src\services\activity.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +38,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\list\list.component.ts" />
     <TypeScriptCompile Include="ClientApp\src\model\activity.ts" />
     <TypeScriptCompile Include="ClientApp\src\model\signup.model.ts" />
+    <TypeScriptCompile Include="ClientApp\src\services\activity.service.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

@@ -3,16 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-//import { Select2Component } from 'angular-select2-component';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { ListComponent } from './list/list.component';
 import { SignupComponent } from './signup/signup.component';
+import { ActivityService } from '../services/activity.service';
 
 @NgModule({
     declarations: [
-        //Select2Component,
         AppComponent,
         NavMenuComponent,
         ListComponent,
@@ -28,7 +27,13 @@ import { SignupComponent } from './signup/signup.component';
             { path: 'signup', component: SignupComponent }
         ])
     ],
-    providers: [],
+    providers: [
+        ActivityService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function getBaseUrl() {
+    return document.getElementsByTagName('base')[0].href;
+}
